@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAKA - Votre assistant numérique</title>
+    <title>NAKA - Cours d'Algorithmes</title>
     <style>
         /* Styles généraux */
         body {
@@ -41,7 +41,6 @@
         }
         .section {
             margin-bottom: 2rem;
-            text-align: center;
         }
         h2 {
             color: #0078d7;
@@ -52,104 +51,127 @@
             text-align: center;
             padding: 1rem 0;
         }
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 1rem;
-            color: #fff;
-            background-color: #0078d7;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .btn:hover {
-            background-color: #005a9e;
-        }
-        .contact-info {
-            text-align: center;
-            margin-top: 2rem;
-        }
-        .contact-info p {
-            margin: 5px 0;
-            font-size: 1.1rem;
-        }
         ul {
             list-style-type: none;
             padding: 0;
         }
         ul li {
+            margin: 10px 0;
             background: #e3f2fd;
-            margin: 5px 0;
             padding: 10px;
             border-radius: 5px;
+            text-align: center;
+        }
+        ul li a {
+            text-decoration: none;
+            color: #0078d7;
+            font-weight: bold;
+        }
+        ul li a:hover {
+            text-decoration: underline;
+        }
+        .chapter-content {
+            margin: 20px 0;
+            padding: 15px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
     <!-- En-tête -->
     <header>
-        <h1>Bienvenue chez NAKA</h1>
-        <p>Votre assistant numérique pour des solutions accessibles à tous</p>
+        <h1>Bienvenue dans le Cours d'Algorithmes</h1>
+        <p>Explorez les bases de l'algorithmique pour devenir un expert en programmation</p>
     </header>
 
     <!-- Menu de navigation -->
     <nav>
-        <a href="#about">À Propos</a>
-        <a href="#services">Nos Services</a>
-        <a href="#algorithms">Cours d'Algorithmes</a>
-        <a href="#contact">Contact</a>
+        <a href="#chapter1">Chapitre 1 : Bases</a>
+        <a href="#chapter2">Chapitre 2 : Structures de Contrôle</a>
+        <a href="#chapter3">Chapitre 3 : Structures de Données</a>
     </nav>
 
     <!-- Contenu principal -->
     <div class="container">
 
-        <!-- Section À Propos -->
-        <div class="section" id="about">
-            <h2>À Propos de NAKA</h2>
-            <p>
-                NAKA (Numerical Assistant for Key solutions Accessible for All) est une entreprise spécialisée dans les solutions numériques,
-                informatiques et les services professionnels pour vous aider à atteindre vos objectifs.
-            </p>
-        </div>
-
-        <!-- Section Services -->
-        <div class="section" id="services">
-            <h2>Nos Services</h2>
-            <p>Nous offrons les services suivants :</p>
-            <ul>
-                <li>Développement de sites web et applications mobiles</li>
-                <li>Gestion des bases de données</li>
-                <li>Consultation et gestion informatique</li>
-                <li>Formation en algorithmes et développement</li>
-                <li>Accompagnement en solutions numériques pour entreprises</li>
-            </ul>
-        </div>
-
-        <!-- Section Cours d'Algorithmes -->
-        <div class="section" id="algorithms">
-            <h2>Cours d'Algorithmes</h2>
-            <p>
-                L'algorithme est une suite d'instructions logiques et ordonnées permettant de résoudre un problème ou d'accomplir une tâche.
-                Il constitue la base de la programmation et est essentiel pour tout informaticien.
-            </p>
-            <p>Dans cette section, nous aborderons :</p>
-            <ul>
-                <li>Définition et importance des algorithmes</li>
-                <li>Les concepts de base : variables, instructions, conditions</li>
-                <li>Introduction aux structures de contrôle (boucles et tests)</li>
-                <li>Écriture et analyse d'un premier algorithme</li>
-            </ul>
-            <p><strong>Commencez dès aujourd'hui et devenez un expert en programmation !</strong></p>
-        </div>
-
-        <!-- Section Contact -->
-        <div class="section" id="contact">
-            <h2>Contactez-nous</h2>
-            <div class="contact-info">
-                <p><strong>WhatsApp :</strong> <a href="https://wa.me/22799083858" class="btn">+227 99 08 38 58</a></p>
-                <p><strong>Email :</strong> <a href="mailto:naka.ne@yahoo.com" class="btn">naka.ne@yahoo.com</a></p>
+        <!-- Chapitre 1 -->
+        <div class="section" id="chapter1">
+            <h2>Chapitre 1 : Les Bases des Algorithmes</h2>
+            <div class="chapter-content">
+                <p>Un **algorithme** est une série d'instructions claires et précises permettant de résoudre un problème. Voici les concepts fondamentaux :</p>
+                <ul>
+                    <li><strong>Variable :</strong> Un espace où stocker des données (par exemple, un nombre, un texte).</li>
+                    <li><strong>Instruction :</strong> Une action à exécuter (comme ajouter deux nombres).</li>
+                    <li><strong>Structure logique :</strong> Le flux logique des étapes à suivre.</li>
+                </ul>
+                <p><strong>Exemple :</strong> Trouver la somme de deux nombres :</p>
+                <pre>
+Début
+  Lire A
+  Lire B
+  S <- A + B
+  Afficher S
+Fin
+                </pre>
             </div>
         </div>
+
+        <!-- Chapitre 2 -->
+        <div class="section" id="chapter2">
+            <h2>Chapitre 2 : Les Structures de Contrôle</h2>
+            <div class="chapter-content">
+                <p>Les **structures de contrôle** permettent de décider quelles instructions exécuter ou de répéter des actions.</p>
+                <ul>
+                    <li><strong>Condition (Si ... Alors ... Sinon) :</strong> Permet de prendre une décision.</li>
+                    <li><strong>Boucles (Pour, Tant que) :</strong> Permettent de répéter une action plusieurs fois.</li>
+                </ul>
+                <p><strong>Exemple :</strong> Trouver si un nombre est positif :</p>
+                <pre>
+Début
+  Lire X
+  Si X > 0 Alors
+    Afficher "Positif"
+  Sinon
+    Afficher "Négatif"
+  FinSi
+Fin
+                </pre>
+                <p><strong>Exemple de boucle :</strong> Afficher les nombres de 1 à 5 :</p>
+                <pre>
+Début
+  Pour I de 1 à 5 Faire
+    Afficher I
+  FinPour
+Fin
+                </pre>
+            </div>
+        </div>
+
+        <!-- Chapitre 3 -->
+        <div class="section" id="chapter3">
+            <h2>Chapitre 3 : Les Structures de Données</h2>
+            <div class="chapter-content">
+                <p>Les **structures de données** permettent de stocker et d'organiser plusieurs informations en mémoire :</p>
+                <ul>
+                    <li><strong>Tableaux :</strong> Une liste de données du même type.</li>
+                    <li><strong>Enregistrements :</strong> Une structure regroupant plusieurs données différentes.</li>
+                </ul>
+                <p><strong>Exemple de tableau :</strong> Ajouter 5 nombres :</p>
+                <pre>
+Début
+  Tableau <- [2, 4, 6, 8, 10]
+  Somme <- 0
+  Pour Chaque Nombre dans Tableau Faire
+    Somme <- Somme + Nombre
+  FinPour
+  Afficher Somme
+Fin
+                </pre>
+            </div>
+        </div>
+
     </div>
 
     <!-- Pied de page -->
