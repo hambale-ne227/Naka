@@ -90,30 +90,6 @@
         .btn:hover {
             background-color: #005a9e;
         }
-        form {
-            margin-top: 20px;
-        }
-        label {
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-        input, textarea, button {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background-color: #0078d7;
-            color: #fff;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #005a9e;
-        }
     </style>
 </head>
 <body>
@@ -146,7 +122,6 @@
         <!-- Section Services -->
         <div class="section" id="services">
             <h2>Nos Services</h2>
-            <p>Nous offrons les services suivants :</p>
             <ul>
                 <li>Développement de sites web et applications mobiles</li>
                 <li>Gestion des bases de données</li>
@@ -159,25 +134,8 @@
         <!-- Section Contact -->
         <div class="section" id="contact">
             <h2>Contactez-nous</h2>
-            <div>
-                <p><strong>WhatsApp :</strong> <a href="https://wa.me/22799073858" class="btn">Contactez-nous sur WhatsApp</a></p>
-                <p><strong>Email :</strong> <a href="mailto:naka.ne@yahoo.com" class="btn">naka.ne@yahoo.com</a></p>
-            </div>
-
-            <!-- Formulaire pour laisser un commentaire -->
-            <h3>Laissez un commentaire ou un avis</h3>
-            <form id="commentForm">
-                <label for="name">Votre Nom :</label>
-                <input type="text" id="name" name="name" placeholder="Entrez votre nom" required>
-
-                <label for="phone">Votre Numéro de Téléphone :</label>
-                <input type="tel" id="phone" name="phone" placeholder="Exemple : 99073858" required>
-
-                <label for="comment">Votre Commentaire :</label>
-                <textarea id="comment" name="comment" rows="5" placeholder="Entrez votre commentaire ici..." required></textarea>
-
-                <button type="submit">Envoyer</button>
-            </form>
+            <p><strong>WhatsApp :</strong> <a href="https://wa.me/22799073858" class="btn">Contactez-nous</a></p>
+            <p><strong>Email :</strong> <a href="mailto:naka.ne@yahoo.com" class="btn">naka.ne@yahoo.com</a></p>
         </div>
 
         <!-- Section Algorithmes -->
@@ -192,11 +150,34 @@
 
             <div class="chapter-content" id="chapter1">
                 <h3>Chapitre 1 : Les Bases des Algorithmes</h3>
-                <p>Un **algorithme** est une série d'instructions claires et précises permettant de résoudre un problème. Voici les concepts fondamentaux :</p>
+                <p>Un algorithme est une série d'instructions organisées pour résoudre un problème. Concepts clés :</p>
                 <ul>
-                    <li><strong>Variable :</strong> Un espace où stocker des données.</li>
-                    <li><strong>Instruction :</strong> Une action à exécuter.</li>
+                    <li><strong>Entrées :</strong> Données initiales fournies.</li>
+                    <li><strong>Instructions :</strong> Étapes pour résoudre le problème.</li>
+                    <li><strong>Sorties :</strong> Résultat final attendu.</li>
                 </ul>
+                <p>Exemple : Trouver la somme de deux nombres.</p>
+            </div>
+
+            <div class="chapter-content" id="chapter2">
+                <h3>Chapitre 2 : Les Structures de Contrôle</h3>
+                <p>Les structures de contrôle permettent de gérer l'ordre d'exécution :</p>
+                <ul>
+                    <li><strong>Conditionnelles :</strong> Permettent de choisir entre plusieurs actions (ex. : "Si" ou "Sinon").</li>
+                    <li><strong>Boucles :</strong> Permettent de répéter des instructions (ex. : "Pour", "Tant que").</li>
+                </ul>
+                <p>Exemple : Afficher les nombres de 1 à 10.</p>
+            </div>
+
+            <div class="chapter-content" id="chapter3">
+                <h3>Chapitre 3 : Les Structures de Données</h3>
+                <p>Les structures de données sont des façons d'organiser et de stocker des informations :</p>
+                <ul>
+                    <li><strong>Tableaux :</strong> Collections d'éléments de même type.</li>
+                    <li><strong>Listes :</strong> Suites d'éléments pouvant être modifiés dynamiquement.</li>
+                    <li><strong>Dictionnaires :</strong> Couples clé-valeur pour un accès rapide.</li>
+                </ul>
+                <p>Exemple : Stocker et afficher les noms de 5 étudiants.</p>
             </div>
         </div>
     </div>
@@ -205,27 +186,5 @@
     <footer>
         <p>&copy; 2024 NAKA. Tous droits réservés.</p>
     </footer>
-
-    <script>
-        document.getElementById('commentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const phone = document.getElementById('phone').value;
-            const comment = document.getElementById('comment').value;
-
-            let message = `Nouveau commentaire : ${comment}`;
-            let destination;
-
-            if (phone.startsWith('99')) {
-                destination = 'SMS vers 99073858';
-            } else if (phone.startsWith('95')) {
-                destination = 'SMS vers 95753967';
-            } else {
-                destination = 'WhatsApp vers 99073858';
-            }
-
-            alert(`Commentaire envoyé à ${destination}`);
-        });
-    </script>
 </body>
 </html>
