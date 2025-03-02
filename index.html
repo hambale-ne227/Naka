@@ -3,188 +3,308 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAKA - Cours d'Algorithmes</title>
+    <title>NAKA - Solutions Numériques</title>
     <style>
-        /* Styles généraux */
-        body {
+        /* Réinitialisation des styles */
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-        header {
-            background-color: #0078d7;
-            color: #fff;
-            text-align: center;
-            padding: 1rem;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            background-color: #005a9e;
-            padding: 0.5rem 0;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-        }
-        .section {
-            margin-bottom: 2rem;
-        }
-        h2 {
-            color: #0078d7;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-        }
-        ul {
-            list-style-type: none;
             padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
         }
-        ul li {
-            margin: 10px 0;
-            background: #e3f2fd;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
+
+        /* En-tête */
+        header {
+            background-color: #ffffff;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
         }
-        ul li a {
+
+        .logo img {
+            width: 120px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: #0A192F;
             text-decoration: none;
-            color: #0078d7;
-            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
         }
-        ul li a:hover {
-            text-decoration: underline;
-        }
-        .chapter-content {
-            margin: 20px 0;
-            padding: 15px;
-            background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+
         .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            font-size: 1rem;
-            color: #fff;
-            background-color: #0078d7;
-            text-decoration: none;
+            background-color: #007BFF;
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Section Hero avec séparation colorée */
+        .hero {
+            position: relative;
+            height: 100vh;
+            margin-top: 70px; /* Espace pour l'en-tête */
+            background: linear-gradient(to bottom right, #F57C00 50%, #4CAF50 50%);
+        }
+
+        .hero .content {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            color: white;
+            z-index: 1;
+            width: 50%;
+        }
+
+        .hero .content h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .hero .content p {
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        /* Sections pour informations */
+        .section-container {
+            position: relative;
+            margin-top: 100px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .section-container.active {
+            opacity: 1;
+        }
+
+        .section-container .section {
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .section-container .section h2 {
+            margin-bottom: 10px;
+            color: #0A192F;
+        }
+
+        .section-container .section p {
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Formulaire de commentaire */
+        .comment-form {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .comment-form input,
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
             border-radius: 5px;
         }
-        .btn:hover {
-            background-color: #005a9e;
+
+        .comment-form button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .comment-form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Pied de page */
+        footer {
+            background-color: #0A192F;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* Bouton "Retour en haut" */
+        #btnTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            display: none;
+        }
+
+        #btnTop:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsivité pour les appareils mobiles */
+        @media screen and (max-width: 768px) {
+            .hero .content {
+                width: 100%;
+                text-align: center;
+                left: 0;
+                top: 40%;
+                transform: translateY(0);
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .comment-form {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
+
     <!-- En-tête -->
     <header>
-        <h1>Bienvenue chez NAKA</h1>
-        <p>Votre assistant numérique pour des solutions accessibles à tous</p>
+        <div class="logo">
+            <img src="A_modern_and_professional_logo_for_NAKA_(Numerical.png" alt="Logo NAKA">
+        </div>
+        <nav>
+            <ul>
+                <li><a onclick="toggleSection('accueil')">Accueil</a></li>
+                <li><a onclick="toggleSection('services')">Nos Services</a></li>
+                <li><a onclick="toggleSection('projets')">Mes Projets</a></li>
+                <li><a onclick="toggleSection('contact')">Contact</a></li>
+                <li><a href="#comment-form" class="btn">Commenter</a></li> <!-- Lien vers le formulaire de commentaire -->
+            </ul>
+        </nav>
     </header>
 
-    <!-- Menu de navigation -->
-    <nav>
-        <a href="#about">À Propos</a>
-        <a href="#services">Nos Services</a>
-        <a href="#contact">Contact</a>
-        <a href="#algorithms">Cours d'Algorithmes</a>
-    </nav>
+    <!-- Section principale -->
+    <section class="hero">
+        <div class="content">
+            <h1>NAKA - Votre Partenaire Numérique</h1>
+            <p>Nous offrons des solutions numériques, informatiques et technologiques accessibles à tous.</p>
+        </div>
+    </section>
 
-    <!-- Contenu principal -->
-    <div class="container">
-
-        <!-- Section À Propos -->
-        <div class="section" id="about">
-            <h2>À Propos de NAKA</h2>
-            <p>
-                NAKA (Numerical Assistant for Key solutions Accessible for All) est une entreprise spécialisée dans les solutions numériques,
-                informatiques et les services professionnels pour vous aider à atteindre vos objectifs.
-            </p>
+    <!-- Sections d'informations -->
+    <div id="section-info" class="section-container">
+        <div class="section" id="accueil">
+            <h2>Accueil</h2>
+            <p>Bienvenue chez NAKA, où l’innovation rencontre la simplicité pour offrir des solutions numériques sur mesure.</p>
         </div>
 
-        <!-- Section Services -->
         <div class="section" id="services">
             <h2>Nos Services</h2>
-            <ul>
-                <li>Développement de sites web et applications mobiles</li>
-                <li>Gestion des bases de données</li>
-                <li>Consultation et gestion informatique</li>
-                <li>Formation en algorithmes et développement</li>
-                <li>Accompagnement en solutions numériques pour entreprises</li>
-            </ul>
+            <p>Nous proposons des services en informatique de gestion, développement web, bases de données et bien plus.</p>
         </div>
 
-        <!-- Section Contact -->
+        <div class="section" id="projets">
+            <h2>Mes Projets</h2>
+            <p>Découvrez nos réalisations : applications mobiles, plateformes e-learning et logiciels de gestion.</p>
+        </div>
+
         <div class="section" id="contact">
-            <h2>Contactez-nous</h2>
-            <p><strong>WhatsApp :</strong> <a href="https://wa.me/22799073858" class="btn">Contactez-nous</a></p>
-            <p><strong>Email :</strong> <a href="mailto:naka.ne@yahoo.com" class="btn">naka.ne@yahoo.com</a></p>
+            <h2>Contact</h2>
+            <p>Email : contact@naka.com</p>
+            <p>Téléphone : (+227) 95 75 39 67</p>
+            <p>Adresse : Niamey, Niger</p>
         </div>
+    </div>
 
-        <!-- Section Algorithmes -->
-        <div class="section" id="algorithms">
-            <h2>Cours d'Algorithmes</h2>
-            <p>Bienvenue dans le cours d'introduction aux algorithmes. Sélectionnez un chapitre pour accéder au contenu :</p>
-            <ul>
-                <li><a href="#chapter1">Chapitre 1 : Les Bases des Algorithmes</a></li>
-                <li><a href="#chapter2">Chapitre 2 : Les Structures de Contrôle</a></li>
-                <li><a href="#chapter3">Chapitre 3 : Les Structures de Données</a></li>
-            </ul>
-
-            <div class="chapter-content" id="chapter1">
-                <h3>Chapitre 1 : Les Bases des Algorithmes</h3>
-                <p>Un algorithme est une série d'instructions organisées pour résoudre un problème. Concepts clés :</p>
-                <ul>
-                    <li><strong>Entrées :</strong> Données initiales fournies.</li>
-                    <li><strong>Instructions :</strong> Étapes pour résoudre le problème.</li>
-                    <li><strong>Sorties :</strong> Résultat final attendu.</li>
-                </ul>
-                <p>Exemple : Trouver la somme de deux nombres.</p>
-            </div>
-
-            <div class="chapter-content" id="chapter2">
-                <h3>Chapitre 2 : Les Structures de Contrôle</h3>
-                <p>Les structures de contrôle permettent de gérer l'ordre d'exécution :</p>
-                <ul>
-                    <li><strong>Conditionnelles :</strong> Permettent de choisir entre plusieurs actions (ex. : "Si" ou "Sinon").</li>
-                    <li><strong>Boucles :</strong> Permettent de répéter des instructions (ex. : "Pour", "Tant que").</li>
-                </ul>
-                <p>Exemple : Afficher les nombres de 1 à 10.</p>
-            </div>
-
-            <div class="chapter-content" id="chapter3">
-                <h3>Chapitre 3 : Les Structures de Données</h3>
-                <p>Les structures de données sont des façons d'organiser et de stocker des informations :</p>
-                <ul>
-                    <li><strong>Tableaux :</strong> Collections d'éléments de même type.</li>
-                    <li><strong>Listes :</strong> Suites d'éléments pouvant être modifiés dynamiquement.</li>
-                    <li><strong>Dictionnaires :</strong> Couples clé-valeur pour un accès rapide.</li>
-                </ul>
-                <p>Exemple : Stocker et afficher les noms de 5 étudiants.</p>
-            </div>
-        </div>
+    <!-- Formulaire de commentaire -->
+    <div class="comment-form" id="comment-form">
+        <h3>Laissez un commentaire</h3>
+        <form id="commentForm" method="POST" action="mailto:contact@naka.com" enctype="text/plain">
+            <label for="email">Votre Email :</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="comment">Votre Commentaire :</label>
+            <textarea id="comment" name="comment" rows="4" required></textarea>
+            
+            <button type="submit">Envoyer le Commentaire</button>
+        </form>
     </div>
 
     <!-- Pied de page -->
     <footer>
-        <p>&copy; 2024 NAKA. Tous droits réservés.</p>
+        <p>&copy; 2025 NAKA - Tous droits réservés.</p>
+        <button id="btnTop">↑ Retour en haut</button>
     </footer>
+
+    <script>
+        // Fonction pour afficher la section choisie
+        function toggleSection(id) {
+            const sectionContainer = document.getElementById('section-info');
+            const sections = sectionContainer.querySelectorAll('.section');
+            sections.forEach(function (section) {
+                section.style.display = 'none';
+            });
+
+            const section = document.getElementById(id);
+            section.style.display = 'block';
+            
+            sectionContainer.classList.add('active');
+        }
+
+        // Fonction pour faire défiler jusqu'au formulaire de commentaire
+        document.querySelector('.btn').addEventListener('click', function () {
+            document.getElementById('comment-form').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Bouton retour en haut
+        const btnTop = document.getElementById("btnTop");
+        window.onscroll = function () {
+            if (document.documentElement.scrollTop > 200) {
+                btnTop.style.display = "block";
+            } else {
+                btnTop.style.display = "none";
+            }
+        };
+
+        btnTop.onclick = function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    </script>
+
 </body>
 </html>
