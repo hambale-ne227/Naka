@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NAKA - Solutions Numériques</title>
     <style>
-        /* Réinitialisation des styles */
         * {
             margin: 0;
             padding: 0;
@@ -20,7 +19,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
+            padding: 15px 50px;
             position: fixed;
             width: 100%;
             top: 0;
@@ -38,7 +37,7 @@
         }
 
         nav ul li {
-            margin: 0 20px;
+            margin: 0 15px;
         }
 
         nav ul li a {
@@ -46,6 +45,7 @@
             text-decoration: none;
             font-size: 18px;
             transition: color 0.3s ease;
+            cursor: pointer;
         }
 
         nav ul li a:hover {
@@ -58,110 +58,41 @@
             border-radius: 5px;
             color: white;
             transition: background 0.3s ease;
+            cursor: pointer;
         }
 
         .btn:hover {
             background-color: #0056b3;
         }
 
-        /* Section Hero */
-        .hero {
-            position: relative;
-            height: 100vh;
-            margin-top: 70px;
-            background: linear-gradient(to bottom right, #F57C00 50%, #4CAF50 50%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        .hero .content {
-            max-width: 70%;
-        }
-
-        .hero .content h1 {
-            font-size: 42px;
-            margin-bottom: 15px;
-        }
-
-        .hero .content p {
-            font-size: 20px;
-            line-height: 1.6;
-        }
-
-        /* Effet d'apparition */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         /* Sections */
         .section-container {
-            margin-top: 100px;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .section-container.active {
-            opacity: 1;
+            margin-top: 80px;
+            padding: 30px;
         }
 
         .section {
-            padding: 30px;
+            display: none; /* Toutes les sections sont cachées par défaut */
+            padding: 20px;
             background-color: #f9f9f9;
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin: 20px 0;
-            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .section.active {
+            display: block;
+            opacity: 1;
         }
 
         .section h2 {
-            margin-bottom: 10px;
             color: #0A192F;
+            margin-bottom: 10px;
         }
 
         .section p {
             font-size: 18px;
             color: #333;
-        }
-
-        /* Formulaire de commentaire */
-        .comment-form {
-            background-color: #f2f2f2;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        .comment-form input,
-        .comment-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .comment-form button {
-            background-color: #007BFF;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        .comment-form button:hover {
-            background-color: #0056b3;
         }
 
         /* Pied de page */
@@ -179,37 +110,36 @@
     <!-- En-tête -->
     <header>
         <div class="logo">
-            <img src="A_modern_and_professional_logo_for_NAKA_(Numerical.png" alt="Logo NAKA">
+            <img src="logo.png" alt="Logo NAKA">
         </div>
         <nav>
             <ul>
-                <li><a href="javascript:void(0)" onclick="toggleSection('accueil')">Accueil</a></li>
-                <li><a href="javascript:void(0)" onclick="toggleSection('services')">Nos Services</a></li>
-                <li><a href="javascript:void(0)" onclick="toggleSection('qui-suis-je')">Qui suis-je ?</a></li>
-                <li><a href="javascript:void(0)" onclick="toggleSection('contact')">Contact</a></li>
-                <li><a href="#comment-form" class="btn">Commenter</a></li>
+                <li><a onclick="toggleSection('accueil')">Accueil</a></li>
+                <li><a onclick="toggleSection('services')">Nos Services</a></li>
+                <li><a onclick="toggleSection('qui-suis-je')">Qui suis-je ?</a></li>
+                <li><a onclick="toggleSection('contact')">Contact</a></li>
+                <li><a class="btn" onclick="toggleSection('commentaire')">Commenter</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Section principale -->
-    <section class="hero">
-        <div class="content">
-            <h1>NAKA - Votre Partenaire Numérique</h1>
-            <p>Nous offrons des solutions numériques, informatiques et technologiques accessibles à tous.</p>
-        </div>
-    </section>
-
     <!-- Sections -->
-    <div id="section-info" class="section-container">
-        <div class="section" id="accueil">
+    <div class="section-container">
+
+        <div class="section active" id="accueil">
             <h2>Accueil</h2>
-            <p>Bienvenue chez NAKA, où l’innovation rencontre la simplicité pour offrir des solutions numériques sur mesure.</p>
+            <p>Bienvenue chez NAKA, où l’innovation rencontre la simplicité pour offrir des solutions numériques adaptées à vos besoins.</p>
         </div>
 
         <div class="section" id="services">
             <h2>Nos Services</h2>
-            <p>Nous proposons des services en informatique de gestion, développement web, bases de données et bien plus.</p>
+            <p>Nous proposons :</p>
+            <ul>
+                <li>Développement d’applications web et mobiles</li>
+                <li>Gestion des bases de données</li>
+                <li>Consulting en informatique de gestion</li>
+                <li>Formation en programmation et algorithmique</li>
+            </ul>
         </div>
 
         <div class="section" id="qui-suis-je">
@@ -219,11 +149,21 @@
 
         <div class="section" id="contact">
             <h2>Contact</h2>
-            <p>Email : naka.ne@yahoo.com</p>
-            <p>WhatsApp : +227 99 07 38 58</p>
-            <p>Facebook : NAKA Services</p>
+            <p>Email : <a href="mailto:naka.ne@yahoo.com">naka.ne@yahoo.com</a></p>
+            <p>WhatsApp : <a href="https://wa.me/22799073858">+227 99 07 38 58</a></p>
+            <p>Facebook : <a href="https://www.facebook.com/NakaServices" target="_blank">NAKA Services</a></p>
             <p>Localisation : Niamey, Niger</p>
         </div>
+
+        <div class="section" id="commentaire">
+            <h2>Laissez un commentaire</h2>
+            <form class="comment-form">
+                <input type="text" placeholder="Votre nom" required>
+                <textarea placeholder="Votre message" rows="4" required></textarea>
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+        </div>
+
     </div>
 
     <!-- Pied de page -->
@@ -232,20 +172,25 @@
     </footer>
 
     <script>
-        // Fonction pour afficher/cacher les sections
+        // Fonction pour afficher une section et cacher les autres
         function toggleSection(sectionId) {
+            // Récupérer toutes les sections
             const sections = document.querySelectorAll('.section');
+
+            // Masquer toutes les sections
             sections.forEach(section => {
-                section.style.display = 'none'; // Masquer toutes les sections
+                section.classList.remove('active');
             });
-            const activeSection = document.getElementById(sectionId);
-            activeSection.style.display = 'block'; // Afficher la section active
+
+            // Afficher uniquement la section sélectionnée
+            document.getElementById(sectionId).classList.add('active');
         }
 
-        // Afficher la première section par défaut
+        // Afficher la section "Accueil" par défaut au chargement
         document.addEventListener("DOMContentLoaded", () => {
             toggleSection('accueil');
         });
     </script>
+
 </body>
 </html>
