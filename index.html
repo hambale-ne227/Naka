@@ -4,13 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NAKA - Solutions Numériques</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
-        /* Réinitialisation des styles */
+        /* Styles généraux */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #333;
         }
 
         /* En-tête */
@@ -20,16 +27,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 50px;
+            padding: 15px 50px;
             position: fixed;
             width: 100%;
             top: 0;
             left: 0;
             z-index: 1000;
+            transition: 0.3s ease-in-out;
         }
 
         .logo img {
             width: 120px;
+            transition: 0.3s;
         }
 
         nav ul {
@@ -45,66 +54,94 @@
             color: white;
             text-decoration: none;
             font-size: 18px;
-            cursor: pointer;
+            transition: 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #00AEEF;
         }
 
         .btn {
-            background-color: #007BFF;
+            background: linear-gradient(45deg, #007BFF, #00AEEF);
             padding: 10px 15px;
             border-radius: 5px;
             color: white;
             text-decoration: none;
+            transition: 0.3s ease-in-out;
         }
 
         .btn:hover {
-            background-color: #0056b3;
+            background: linear-gradient(45deg, #0056b3, #0088cc);
         }
 
         /* Section Hero */
         .hero {
-            position: relative;
             height: 100vh;
-            margin-top: 70px;
             background: linear-gradient(to bottom right, #F57C00 50%, #4CAF50 50%);
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
+            flex-direction: column;
+            transition: 0.5s ease-in-out;
         }
 
         .hero h1 {
-            font-size: 40px;
+            font-size: 45px;
             margin-bottom: 15px;
+            animation: fadeInDown 1s ease-in-out;
         }
 
         .hero p {
-            font-size: 22px;
+            font-size: 20px;
+            max-width: 700px;
             line-height: 1.6;
-            max-width: 800px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Sections */
         .section-container {
-            padding: 50px;
+            padding: 80px 50px;
         }
 
         .section {
-            background-color: #f9f9f9;
-            padding: 30px;
+            background-color: white;
+            padding: 40px;
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-in-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section h2 {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             color: #0A192F;
+            font-size: 28px;
         }
 
-        .section p {
+        .section p, .section ul {
             font-size: 18px;
-            color: #333;
+            color: #555;
+            line-height: 1.6;
         }
 
         /* Pied de page */
@@ -113,7 +150,7 @@
             color: white;
             text-align: center;
             padding: 20px;
-            margin-top: 40px;
+            margin-top: 50px;
         }
     </style>
 </head>
@@ -136,52 +173,34 @@
 
     <!-- Section Hero -->
     <section class="hero">
-        <div>
-            <h1>NAKA - Votre Partenaire Numérique</h1>
-            <p>Nous offrons des solutions informatiques et numériques accessibles à tous.</p>
-        </div>
+        <h1>NAKA - Votre Partenaire Numérique</h1>
+        <p>Nous offrons des solutions informatiques innovantes et accessibles à tous.</p>
     </section>
 
-    <!-- Sections d’informations -->
+    <!-- Contenu -->
     <div class="section-container">
         <div class="section" id="presentation">
             <h2>Qui sommes-nous ?</h2>
-            <p>NAKA (Numerical Assistant for Key solutions Accessible for All) est une entreprise spécialisée dans les solutions numériques, informatiques et technologiques. Notre mission est de fournir des solutions innovantes adaptées aux besoins des entreprises et particuliers.</p>
+            <p>NAKA est une entreprise spécialisée dans les solutions numériques, informatiques et technologiques.</p>
         </div>
 
         <div class="section" id="services">
             <h2>Nos Services</h2>
             <ul>
-                <li>✔️ Développement Web & Mobile</li>
-                <li>✔️ Création de logiciels de gestion</li>
-                <li>✔️ Sécurité informatique & cybersécurité</li>
-                <li>✔️ Gestion des bases de données</li>
-                <li>✔️ Formation en informatique et algorithmique</li>
-                <li>✔️ Automatisation des tâches et solutions IA</li>
+                <li>💻 Développement Web & Mobile</li>
+                <li>📊 Création de logiciels de gestion</li>
+                <li>🔒 Sécurité informatique & cybersécurité</li>
+                <li>📂 Gestion des bases de données</li>
+                <li>📚 Formation en informatique et algorithmique</li>
             </ul>
-        </div>
-
-        <div class="section" id="projets">
-            <h2>Nos Projets</h2>
-            <p>Nous avons réalisé plusieurs projets, notamment :</p>
-            <ul>
-                <li>📱 **Application mobile éducative** pour la formation en ligne</li>
-                <li>💻 **Plateforme de gestion** pour entreprises et startups</li>
-                <li>🛒 **E-commerce** avec gestion de paiement sécurisé</li>
-            </ul>
-        </div>
-
-        <div class="section" id="temoignages">
-            <h2>Ce que disent nos clients</h2>
-            <p>"NAKA nous a permis d’automatiser notre comptabilité et d’améliorer la gestion de nos stocks." - Client satisfait</p>
         </div>
 
         <div class="section" id="contact">
             <h2>Contactez-nous</h2>
-            <p>📧 **Email** : <a href="mailto:naka.ne@yahoo.com">naka.ne@yahoo.com</a></p>
-            <p>📱 **WhatsApp** : <a href="https://wa.me/22799073858">+227 99 07 38 58</a></p>
-            <p>🌍 **Facebook** : <a href="https://facebook.com/NakaServices" target="_blank">Naka Services</a></p>
-            <p>📍 **Localisation** : Niamey, Niger</p>
+            <p>📧 Email : <a href="mailto:naka.ne@yahoo.com">naka.ne@yahoo.com</a></p>
+            <p>📱 WhatsApp : <a href="https://wa.me/22799073858">+227 99 07 38 58</a></p>
+            <p>🌍 Facebook : <a href="https://facebook.com/NakaServices">Naka Services</a></p>
+            <p>📍 Localisation : Niamey, Niger</p>
         </div>
     </div>
 
@@ -189,6 +208,19 @@
     <footer>
         <p>&copy; 2025 NAKA - Tous droits réservés.</p>
     </footer>
+
+    <script>
+        // Animation d’apparition au défilement
+        window.addEventListener("scroll", function() {
+            document.querySelectorAll(".section").forEach(section => {
+                let position = section.getBoundingClientRect().top;
+                let screenPosition = window.innerHeight / 1.2;
+                if (position < screenPosition) {
+                    section.classList.add("visible");
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
