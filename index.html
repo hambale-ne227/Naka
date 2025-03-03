@@ -121,11 +121,7 @@
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             margin: 20px 0;
-            transition: transform 0.3s ease;
-        }
-
-        .section:hover {
-            transform: scale(1.02);
+            display: none;
         }
 
         .section h2 {
@@ -187,10 +183,10 @@
         </div>
         <nav>
             <ul>
-                <li><a onclick="toggleSection('accueil')">Accueil</a></li>
-                <li><a onclick="toggleSection('services')">Nos Services</a></li>
-                <li><a onclick="toggleSection('qui-suis-je')">Qui suis-je ?</a></li>
-                <li><a onclick="toggleSection('contact')">Contact</a></li>
+                <li><a href="javascript:void(0)" onclick="toggleSection('accueil')">Accueil</a></li>
+                <li><a href="javascript:void(0)" onclick="toggleSection('services')">Nos Services</a></li>
+                <li><a href="javascript:void(0)" onclick="toggleSection('qui-suis-je')">Qui suis-je ?</a></li>
+                <li><a href="javascript:void(0)" onclick="toggleSection('contact')">Contact</a></li>
                 <li><a href="#comment-form" class="btn">Commenter</a></li>
             </ul>
         </nav>
@@ -235,5 +231,21 @@
         <p>&copy; 2025 NAKA - Tous droits réservés.</p>
     </footer>
 
+    <script>
+        // Fonction pour afficher/cacher les sections
+        function toggleSection(sectionId) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.style.display = 'none'; // Masquer toutes les sections
+            });
+            const activeSection = document.getElementById(sectionId);
+            activeSection.style.display = 'block'; // Afficher la section active
+        }
+
+        // Afficher la première section par défaut
+        document.addEventListener("DOMContentLoaded", () => {
+            toggleSection('accueil');
+        });
+    </script>
 </body>
 </html>
