@@ -49,22 +49,6 @@
     </style>
 </head>
 <body>
-    <!-- Page de connexion -->
-    <div id="login-page" class="container mt-5">
-        <h2 class="text-center">Connexion Administrateur</h2>
-        <form id="login-form">
-            <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Votre email" required>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Mot de passe</label>
-                <input type="password" class="form-control" id="password" placeholder="Votre mot de passe" required>
-            </div>
-            <button type="submit" class="btn btn-success w-100">Se connecter</button>
-        </form>
-    </div>
-
     <!-- Interface administrateur -->
     <div id="admin-interface" class="hidden">
         <header class="p-3 bg-success text-white text-center">
@@ -101,7 +85,7 @@
     </div>
 
     <!-- Interface utilisateur -->
-    <div id="user-interface" class="hidden">
+    <div id="user-interface">
         <header class="p-3 bg-success text-white text-center">
             <h1>Naka - Publications</h1>
         </header>
@@ -115,37 +99,70 @@
 
         <!-- Barre de navigation en bas -->
         <div class="bottom-nav">
-            <a href="#" id="home"><i class="fas fa-home"></i><br>Accueil</a>
-            <a href="#" id="profile"><i class="fas fa-user"></i><br>Profil</a>
+            <a href="#" id="register"><i class="fas fa-user-plus"></i><br>S'inscrire</a>
+            <a href="#" id="login"><i class="fas fa-sign-in-alt"></i><br>Se connecter</a>
+        </div>
+    </div>
+
+    <!-- Formulaire d'inscription administrateur -->
+    <div id="admin-registration" class="hidden">
+        <div class="container mt-5">
+            <h2 class="text-center">Inscription Administrateur</h2>
+            <form id="register-admin-form">
+                <div class="mb-3">
+                    <label for="admin-email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="admin-email" value="hambalemoussa@gmail.com" required>
+                </div>
+                <div class="mb-3">
+                    <label for="admin-password" class="form-label">Mot de passe</label>
+                    <input type="password" class="form-control" id="admin-password" value="Ma990711." required>
+                </div>
+                <button type="submit" class="btn btn-success w-100">S'inscrire</button>
+            </form>
         </div>
     </div>
 
     <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Simuler un administrateur
-        const adminEmail = "admin@example.com";
-        const adminPassword = "password123";
+        // Variables globales
+        let isAdminRegistered = false;
 
-        // Gestion de la connexion
-        document.getElementById("login-form").addEventListener("submit", function(event) {
+        // Afficher le formulaire d'inscription administrateur lors de la première publication
+        document.getElementById("admin-publication-form").addEventListener("submit", function(event) {
             event.preventDefault();
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            
-            if (email === adminEmail && password === adminPassword) {
-                alert("Connexion réussie !");
-                document.getElementById("login-page").classList.add("hidden");
-                document.getElementById("admin-interface").classList.remove("hidden");
+            if (!isAdminRegistered) {
+                alert("Veuillez vous inscrire en tant qu'administrateur avant de publier.");
+                document.getElementById("admin-interface").classList.add("hidden");
+                document.getElementById("admin-registration").classList.remove("hidden");
             } else {
-                alert("Email ou mot de passe incorrect.");
+                alert("Publication réussie !");
             }
         });
 
-        // Simuler des utilisateurs normaux
-        document.getElementById("home").addEventListener("click", () => {
-            document.getElementById("admin-interface").classList.add("hidden");
-            document.getElementById("user-interface").classList.remove("hidden");
+        // Gestion de l'inscription administrateur
+        document.getElementById("register-admin-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const email = document.getElementById("admin-email").value;
+            const password = document.getElementById("admin-password").value;
+
+            if (email === "hambalemoussa@gmail.com" && password === "Ma990711.") {
+                isAdminRegistered = true;
+                alert("Inscription réussie en tant qu'administrateur !");
+                document.getElementById("admin-registration").classList.add("hidden");
+                document.getElementById("admin-interface").classList.remove("hidden");
+            } else {
+                alert("Les informations ne correspondent pas.");
+            }
+        });
+
+        // Gestion des utilisateurs visiteurs
+        document.getElementById("register").addEventListener("click", () => {
+            alert("Formulaire d'inscription visiteur (à implémenter)");
+        });
+
+        document.getElementById("login").addEventListener("click", () => {
+            alert("Formulaire de connexion visiteur (à implémenter)");
         });
     </script>
 </body>
