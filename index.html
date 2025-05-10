@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site - Naka</title>
+    <title>Naka - Gestion des Rôles</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,138 +18,135 @@
             padding: 0;
             background-color: #f4f4f4;
         }
-        header {
-            background-color: #003d16;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        header img {
-            width: 50px;
-            vertical-align: middle;
-        }
-        header h1 {
-            display: inline-block;
-            margin-left: 20px;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            background-color: #006d32;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 14px 20px;
-            display: block;
-            text-align: center;
-            transition: background-color 0.3s ease;
-        }
-        nav a:hover {
-            background-color: #003d16;
-        }
-        .content {
-            padding: 20px;
+
+        /* Contenu masqué par défaut */
+        .hidden {
             display: none;
         }
-        .active {
-            display: block;
-        }
-        section {
-            margin-bottom: 20px;
-        }
-        .section-title {
-            font-size: 1.5em;
-            color: #003d16;
-            margin-bottom: 10px;
-        }
-        footer {
+
+        /* Barre de navigation en bas */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
             background-color: #003d16;
             color: white;
-            text-align: center;
+            display: flex;
+            justify-content: space-around;
             padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+        }
+
+        .bottom-nav a {
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .bottom-nav a:hover {
+            color: #FF9933;
         }
     </style>
 </head>
 <body>
-
-    <header>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Flag_of_Niger.svg/2560px-Flag_of_Niger.svg.png" alt="Drapeau du Niger">
-        <h1>Naka - Solutions Numériques</h1>
-    </header>
-
-    <nav>
-        <a href="#" id="qui-suis-je">Qui suis-je</a>
-        <a href="#" id="services">Services</a>
-        <a href="#" id="commentaires">Commentaires</a>
-    </nav>
-
-    <div class="content" id="qui-suis-je-content">
-        <section>
-            <h2 class="section-title">Qui suis-je ?</h2>
-            <p>Je m'appelle Hambalé, connu sous le nom de Naka. Je suis né en 2002 à Chadakori. Actuellement, je suis élève en 3ème année en informatique de gestion à l'École Lycée d'Enseignement Professionnel Issa Beri.</p>
-        </section>
+    <!-- Page de connexion -->
+    <div id="login-page" class="container mt-5">
+        <h2 class="text-center">Connexion Administrateur</h2>
+        <form id="login-form">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Votre email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" id="password" placeholder="Votre mot de passe" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Se connecter</button>
+        </form>
     </div>
 
-    <div class="content" id="services-content">
-        <section>
-            <h2 class="section-title">Services</h2>
-            <p>Chez Naka, nous proposons des solutions numériques adaptées à vos besoins en informatique. Nos services incluent :</p>
-            <ul>
-                <li>Développement d'applications web et mobiles</li>
-                <li>Formation en informatique et gestion</li>
-                <li>Conseils en transformation numérique</li>
-            </ul>
-        </section>
+    <!-- Interface administrateur -->
+    <div id="admin-interface" class="hidden">
+        <header class="p-3 bg-success text-white text-center">
+            <h1>Naka - Tableau de Bord (Admin)</h1>
+        </header>
+        <div class="container mt-4">
+            <h2>Tableau de bord</h2>
+            <p>Bienvenue, Administrateur. Gérez vos publications ici.</p>
+            <!-- Formulaire de publication -->
+            <div class="card p-3 mb-3">
+                <h3>Créer une publication</h3>
+                <form id="admin-publication-form">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Titre</label>
+                        <input type="text" class="form-control" id="title" placeholder="Titre de la publication" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="type" class="form-label">Type de contenu</label>
+                        <select class="form-select" id="type" required>
+                            <option value="image">Image</option>
+                            <option value="video">Vidéo</option>
+                            <option value="document">Document</option>
+                            <option value="audio">Audio</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="file" class="form-label">Fichier</label>
+                        <input type="file" class="form-control" id="file" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">Publier</button>
+                </form>
+            </div>
+        </div>
     </div>
 
-    <div class="content" id="commentaires-content">
-        <section>
-            <h2 class="section-title">Commentaires</h2>
-            <p>Découvrez ce que nos clients et partenaires pensent de nos services :</p>
-            <blockquote>
-                "Naka a su répondre à nos attentes avec professionnalisme et innovation. Une équipe de confiance!" - Client A
-            </blockquote>
-            <blockquote>
-                "Grâce à Naka, notre gestion informatique a été optimisée, et nous avons vu une amélioration immédiate." - Client B
-            </blockquote>
-        </section>
+    <!-- Interface utilisateur -->
+    <div id="user-interface" class="hidden">
+        <header class="p-3 bg-success text-white text-center">
+            <h1>Naka - Publications</h1>
+        </header>
+        <div class="container mt-4">
+            <h2>Publications</h2>
+            <p>Explorez les publications et laissez vos commentaires.</p>
+            <div id="publication-list">
+                <!-- Les publications seront affichées ici -->
+            </div>
+        </div>
+
+        <!-- Barre de navigation en bas -->
+        <div class="bottom-nav">
+            <a href="#" id="home"><i class="fas fa-home"></i><br>Accueil</a>
+            <a href="#" id="profile"><i class="fas fa-user"></i><br>Profil</a>
+        </div>
     </div>
 
-    <footer>
-        <p>&copy; 2025 Naka - Tous droits réservés</p>
-    </footer>
-
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Fonction pour afficher la section en fonction du bouton cliqué
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.content');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            const activeSection = document.getElementById(sectionId);
-            activeSection.classList.add('active');
-        }
+        // Simuler un administrateur
+        const adminEmail = "admin@example.com";
+        const adminPassword = "password123";
 
-        // Ajouter des événements de clic aux boutons de navigation
-        document.getElementById('qui-suis-je').addEventListener('click', function() {
-            showSection('qui-suis-je-content');
+        // Gestion de la connexion
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            
+            if (email === adminEmail && password === adminPassword) {
+                alert("Connexion réussie !");
+                document.getElementById("login-page").classList.add("hidden");
+                document.getElementById("admin-interface").classList.remove("hidden");
+            } else {
+                alert("Email ou mot de passe incorrect.");
+            }
         });
 
-        document.getElementById('services').addEventListener('click', function() {
-            showSection('services-content');
+        // Simuler des utilisateurs normaux
+        document.getElementById("home").addEventListener("click", () => {
+            document.getElementById("admin-interface").classList.add("hidden");
+            document.getElementById("user-interface").classList.remove("hidden");
         });
-
-        document.getElementById('commentaires').addEventListener('click', function() {
-            showSection('commentaires-content');
-        });
-
-        // Afficher la section "Qui suis-je" par défaut
-        showSection('qui-suis-je-content');
     </script>
-
 </body>
 </html>
